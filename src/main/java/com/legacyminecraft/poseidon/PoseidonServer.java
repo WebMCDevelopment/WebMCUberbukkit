@@ -61,7 +61,7 @@ public final class PoseidonServer {
 
         //Start Watchdog
         watchDogThread = new WatchDogThread(Thread.currentThread());
-        if (PoseidonConfig.getInstance().getBoolean("settings.enable-watchdog", true)) {
+        if (PoseidonConfig.getInstance().getBoolean("settings.watchdog.enable", true)) {
             getLogger().info("[Poseidon] Starting Watchdog to detect any server hangs!");
             watchDogThread.start();
             watchDogThread.tickUpdate();
