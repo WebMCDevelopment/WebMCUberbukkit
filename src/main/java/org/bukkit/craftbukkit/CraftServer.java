@@ -71,8 +71,12 @@ public final class CraftServer implements Server {
     private final Map<String, World> worlds = new LinkedHashMap<String, World>();
     private final Configuration configuration;
     private final Yaml yaml = new Yaml(new SafeConstructor());
-    private boolean shuttingdown = false;
-    private final List<String> hiddenCommands = new ArrayList<>(); //Project Poseidon - Create variable
+
+    // Project Poseidon - Start
+    private volatile boolean shuttingdown = false;
+    private final List<String> hiddenCommands = new ArrayList<>();
+
+    // Project Poseidon - End
 
     public CraftServer(MinecraftServer console, ServerConfigurationManager server) {
         this.console = console;
@@ -768,6 +772,7 @@ public final class CraftServer implements Server {
     }
 
     public void shutdown() {
+        setShuttingdown(true);
         console.a();
     }
 
