@@ -187,7 +187,7 @@ public class PoseidonConfig extends Configuration {
         generateConfigOption("emergency.debug.regenerate-corrupt-chunks.enable", false);
         generateConfigOption("emergency.debug.regenerate-corrupt-chunks.info", "This setting allows you to automatically regenerate corrupt chunks. This is useful after a ungraceful shutdown while a file is being written to or out of memory exception.");
 
-        generateConfigOption("settings.update-checker.enabled", true);
+        generateConfigOption("settings.update-checker.enabled", false);
         generateConfigOption("settings.update-checker.info", "This setting allows you to disable the update checker. This is useful if you have a custom build of Poseidon or don't want to be notified of updates.");
         generateConfigOption("settings.update-checker.notify-staff.enabled", true);
         generateConfigOption("settings.update-checker.notify-staff.info", "This setting notifies operators and players with the permission poseidon.update when a new version of Poseidon is available on join.");

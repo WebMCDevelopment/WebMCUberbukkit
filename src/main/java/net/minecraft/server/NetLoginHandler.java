@@ -5,6 +5,7 @@ import com.legacyminecraft.poseidon.PoseidonConfig;
 import com.legacyminecraft.poseidon.util.CrackedAllowlist;
 import com.projectposeidon.johnymuffin.LoginProcessHandler;
 
+import net.minecraft.server.NetServerHandler;
 import uk.betacraft.uberbukkit.Uberbukkit;
 import uk.betacraft.uberbukkit.protocol.Protocol;
 
@@ -18,6 +19,8 @@ import java.util.Random;
 import java.util.logging.Logger;
 
 import static com.legacyminecraft.poseidon.util.Release2Beta.deserializeAddress;
+
+import xyz.webmc.minecraft.packet.Packet254ServerPing;
 
 public class NetLoginHandler extends NetHandler {
 
@@ -205,6 +208,20 @@ public class NetLoginHandler extends NetHandler {
         a.info(this.b() + " lost connection");
         this.c = true;
     }
+
+    // WebMC Start
+	public void a(final Packet254ServerPing packet254serverping) {
+		try {
+			final String str = this.server.motdStr + "\u00a7" + this.server.serverConfigurationManager.players.size() + "\u00a7" + this.server.serverConfigurationManager.maxPlayers;
+			this.networkManager.queue(new Packet255KickDisconnect(str, true));
+			this.networkManager.d();
+			this.c = true;
+		} catch (Exception var3) {
+			var3.printStackTrace();
+		}
+
+	}
+    // WebMC End
 
     public void a(Packet packet) {
         this.disconnect("Protocol error");

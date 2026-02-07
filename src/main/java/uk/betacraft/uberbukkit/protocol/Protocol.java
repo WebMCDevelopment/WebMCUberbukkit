@@ -2,6 +2,8 @@ package uk.betacraft.uberbukkit.protocol;
 
 import uk.betacraft.uberbukkit.protocol.extension.*;
 
+import xyz.webmc.minecraft.protocol.Protocol17;
+
 public interface Protocol {
     public boolean canReceiveBlockItem(int id);
 
@@ -37,6 +39,10 @@ public interface Protocol {
                 return new Protocol13();
             case 14:
                 return new Protocol14();
+            // WebMC Start
+            case 17:
+                return new Protocol17();
+            // WebMC End
             case 1984:
                 return new Protocol1984();
             case 2000:

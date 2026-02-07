@@ -73,7 +73,7 @@ public final class PoseidonServer {
 
     private void initializeUpdateChecker() {
         if (!PoseidonConfig.getInstance().getConfigBoolean("settings.update-checker.enabled", true)) {
-            getLogger().info("[Poseidon] Version checker disabled. The server will not check for updates.");
+            // getLogger().info("[Poseidon] Version checker disabled. The server will not check for updates."); // WebMC - disable update checker messages
             return;
         }
 
@@ -85,7 +85,7 @@ public final class PoseidonServer {
         }
 
         if (!getBuildType().equalsIgnoreCase("production")) {
-            getLogger().warning("[Poseidon] Version checker is disabled as this is a " + getBuildType() + " build. The updater will only check for updates on production builds.");
+            getLogger().warning("[Poseidon] Version checker is disabled as this is an " + getBuildType() + " build. The updater will only check for updates on production builds.");
             return;
         }
 

@@ -15,6 +15,9 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import xyz.webmc.minecraft.packet.Packet254ServerPing;
+import xyz.webmc.minecraft.protocol.Protocol17;
+
 public abstract class Packet {
 
     private static Map packetIdToClassMap = new HashMap();
@@ -254,6 +257,9 @@ public abstract class Packet {
         a(131, true, false, Packet131.class);
         a(200, true, false, Packet200Statistic.class);
         a(255, true, true, Packet255KickDisconnect.class);
+        // WebMC Start
+        a(254, true, true, Packet254ServerPing.class);
+        // WebMC End
         packetClassToIdMap.put(ArtificialPacket53BlockChange.class, 53); //Poseidon - Artificial Block Change Packet
         e = new HashMap();
         f = 0;

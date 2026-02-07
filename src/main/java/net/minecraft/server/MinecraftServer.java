@@ -71,6 +71,10 @@ public class MinecraftServer implements Runnable, ICommandListener {
 //    private PoseidonVersionChecker poseidonVersionChecker;
     //Poseidon End
 
+    // WebMC Start
+    public String motdStr;
+    // WebMC End
+
     public MinecraftServer(OptionSet options) { // CraftBukkit - adds argument OptionSet
         new ThreadSleepForever(this);
 
@@ -124,6 +128,10 @@ public class MinecraftServer implements Runnable, ICommandListener {
         this.spawnAnimals = this.propertyManager.getBoolean("spawn-animals", true);
         this.pvpMode = this.propertyManager.getBoolean("pvp", true);
         this.allowFlight = this.propertyManager.getBoolean("allow-flight", false);
+        // WebMC Start
+		this.motdStr = this.propertyManager.getString("motd", "A Minecraft Server");
+		this.motdStr = this.motdStr.replace('\u00a7', '$');
+        // WebMC End
         InetAddress inetaddress = null;
 
         if (s.length() > 0) {
@@ -143,12 +151,13 @@ public class MinecraftServer implements Runnable, ICommandListener {
             return false;
         }
 
-        if (!this.onlineMode) {
-            log.warning("**** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!");
-            log.warning("The server will make no attempt to authenticate usernames. Beware.");
-            log.warning("While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.");
-            log.warning("To change this, set \"online-mode\" to \"true\" in the server.settings file.");
-        }
+        // WebMC - disable offline mode warning
+        // if (!this.onlineMode) {
+        //     log.warning("**** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!");
+        //     log.warning("The server will make no attempt to authenticate usernames. Beware.");
+        //     log.warning("While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.");
+        //     log.warning("To change this, set \"online-mode\" to \"true\" in the server.settings file.");
+        // }
 
         this.serverConfigurationManager = new ServerConfigurationManager(this);
         // CraftBukkit - removed trackers

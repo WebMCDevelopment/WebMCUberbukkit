@@ -3,6 +3,8 @@ package net.minecraft.server;
 import uk.betacraft.uberbukkit.packet.Packet62Sound;
 import uk.betacraft.uberbukkit.packet.Packet63Digging;
 
+import xyz.webmc.minecraft.packet.Packet254ServerPing;
+
 public abstract class NetHandler {
 
     public NetHandler() {
@@ -226,4 +228,10 @@ public abstract class NetHandler {
     public void handle63Digging(Packet63Digging packet62) {
         this.a((Packet) packet62);
     }
+
+    // WebMC Start
+    public void a(final Packet254ServerPing packet254serverping) {
+        this.a((Packet) packet254serverping);
+    }
+    // WebMC End
 }
