@@ -1,5 +1,6 @@
 target/
 build/
+bin/
 
 .idea/*
 !.idea/codeStyles/
@@ -11,3 +12,8 @@ dependency-reduced-pom.xml
 run/
 /.gradle
 /buildSrc/.gradle
+
+/.vscode
+/gradle/wrapper/gradle-wrapper.jar
+/gradlew
+/gradlew.bat
