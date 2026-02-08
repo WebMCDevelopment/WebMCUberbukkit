@@ -5,7 +5,6 @@ import com.legacyminecraft.poseidon.PoseidonConfig;
 import com.legacyminecraft.poseidon.util.CrackedAllowlist;
 import com.projectposeidon.johnymuffin.LoginProcessHandler;
 
-import net.minecraft.server.NetServerHandler;
 import uk.betacraft.uberbukkit.Uberbukkit;
 import uk.betacraft.uberbukkit.protocol.Protocol;
 
@@ -15,6 +14,7 @@ import org.bukkit.craftbukkit.CraftServer;
 
 import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.net.SocketAddress;
 import java.util.Random;
 import java.util.logging.Logger;
 
